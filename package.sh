@@ -5,7 +5,7 @@ git clone https://github.com/douglascrockford/JSON-java.git original
 
 # repackage them into maven standard layout
 mkdir -p dist/src/main/java/org/json
-rm original/README dist/
+rm original/README
 mv original/* dist/src/main/java/org/json/
 
 # Add a pom.xml with the current date as version

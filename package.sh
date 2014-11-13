@@ -14,7 +14,7 @@ sed -i "s/%%VERSION%%/`date +%Y%m%d`/g" dist/pom.xml
 
 # Build and release it
 cd dist
-mvn verify -Psonatype-oss-release
+mvn deploy -Psonatype-oss-release
 cd ..
 
 # and clean everything up again

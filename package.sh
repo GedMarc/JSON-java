@@ -41,7 +41,7 @@ sed -i "s/%%VERSION%%/${tagName}/g" dist/pom.xml
 sed -i "s/%%JAVAVERSION%%/1.7/g" dist/pom.xml
 
 echo ""
-echo "Please run mvn verify in the dist folder"
+echo "Please run mvn verify -Dgpg.passphrase=thepassphrase in the dist folder"
 read success
 
 # Add a pom.xml with the current date as version
@@ -53,7 +53,7 @@ sed -i "s/%%JAVAVERSION%%/1.6/g" dist/pom.xml
 rm -Rf dist/src/test
 
 echo ""
-echo "Please run mvn clean deploy in the dist folder"
+echo "Please run mvn clean deploy -Dgpg.passphrase=thepassphrase in the dist folder"
 echo "use a shell with a working gpg2 command. Hit <enter> afterwards."
 read success
 

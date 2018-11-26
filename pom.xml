@@ -98,6 +98,8 @@
 	</dependencies>
 
 	<build>
+        <sourceDirectory>dist/src/main/java</sourceDirectory>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
@@ -127,7 +129,7 @@
                         <configuration>
                             <rules>
                                 <requireJavaVersion>
-                                    <version>1.8.0</version>
+                                    <version>1.6.0</version>
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
@@ -137,11 +139,21 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>3.8.0</version>
 				<configuration>
-					<source>%%JAVAVERSION%%</source>
-					<target>%%JAVAVERSION%%</target>
+					<!--<source>%%JAVAVERSION%%</source>
+					<target>%%JAVAVERSION%%</target>-->
+                    <source>1.11</source>
+                    <target>1.11</target>
+                    <release>1.11</release>
 				</configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>7.0</version>
+                    </dependency>
+                </dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -208,25 +220,23 @@
 					</archive>
 				</configuration>
 			</plugin>
-            <!-- Attach the generated module-info the class file. This plugin requires JDK 1.8 -->
+            <!-- Attach the generated module-info the class file -->
             <plugin>
-                <groupId>org.moditect</groupId>
-                <artifactId>moditect-maven-plugin</artifactId>
-                <version>1.0.0.Beta1</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.7</version>
                 <executions>
                     <execution>
-                        <id>add-module-infos</id>
-                        <phase>package</phase>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
                         <goals>
-                            <goal>add-module-info</goal>
+                            <goal>add-source</goal>
                         </goals>
                         <configuration>
-                            <overwriteExistingFiles>true</overwriteExistingFiles>
-                            <module>
-                                <moduleInfoFile>
-                                    src/moditect/module-info.java
-                                </moduleInfoFile>
-                            </module>
+                            <sources>
+                                <source>src/main/java</source>
+                                <source>src/moditect</source>
+                            </sources>
                         </configuration>
                     </execution>
                 </executions>

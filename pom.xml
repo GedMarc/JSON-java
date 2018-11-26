@@ -3,7 +3,7 @@
 
 	<groupId>org.json</groupId>
 	<artifactId>json</artifactId>
-	<version>%%VERSION%%</version>
+	<version>20180813</version>
 	<packaging>bundle</packaging>
 
 	<name>JSON in Java</name>
@@ -143,9 +143,9 @@
 				<configuration>
 					<!--<source>%%JAVAVERSION%%</source>
 					<target>%%JAVAVERSION%%</target>-->
-                    <source>1.11</source>
-                    <target>1.11</target>
-                    <release>1.11</release>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <!--<release>1.11</release>-->
 				</configuration>
                 <dependencies>
                     <dependency>
@@ -243,4 +243,46 @@
             </plugin>
 		</plugins>
 	</build>
+    <profiles>
+
+        <profile>
+            <id>jwebmp-distribution</id>
+            <activation>
+            </activation>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>jwebmp-snapshot</id>
+                    <name>JWebMPArtifactory-snapshots</name>
+                    <url>https://jwebmp.com/artifactory/libs-snapshot-local</url>
+                </snapshotRepository>
+                <repository>
+                    <id>jwebmp-release</id>
+                    <name>JWebMPArtifactory-releases</name>
+                    <url>https://jwebmp.com/artifactory/libs-release-local</url>
+                </repository>
+            </distributionManagement>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <passphrase>${gpg.passphrase}</passphrase>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

@@ -1,1 +1,4 @@
-.idea
+**/*.idea
+src/main
+dist/
+*.iml

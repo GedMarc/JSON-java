@@ -45,7 +45,12 @@ SOFTWARE.
  */
 public class CDL {
 
-    /**
+	private CDL()
+	{
+		//Singleton Util
+	}
+
+	/**
      * Get the next value. The value can be wrapped in quotes. The value can
      * be empty.
      * @param x A JSONTokener of the source text.
@@ -55,7 +60,7 @@ public class CDL {
     private static String getValue(JSONTokener x) throws JSONException {
         char c;
         char q;
-        StringBuffer sb;
+        StringBuilder sb;
         do {
             c = x.next();
         } while (c == ' ' || c == '\t');
@@ -65,7 +70,7 @@ public class CDL {
         case '"':
         case '\'':
             q = c;
-            sb = new StringBuffer();
+            sb = new StringBuilder();
             for (;;) {
                 c = x.next();
                 if (c == q) {
@@ -275,7 +280,7 @@ public class CDL {
         if (names == null || names.length() == 0) {
             return null;
         }
-        StringBuffer sb = new StringBuffer();
+	    StringBuilder sb = new StringBuilder();
         for (int i = 0; i < ja.length(); i += 1) {
             JSONObject jo = ja.optJSONObject(i);
             if (jo != null) {

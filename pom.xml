@@ -71,10 +71,6 @@
         </developer>
 	</developers>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -90,9 +86,34 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+    <profiles>
+        <profile>
+            <id>jdk11</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven.javadoc.version}</version>
+                        <configuration>
+                            <detectJavaApiLink>false</detectJavaApiLink>
+                            <offlineLinks>
+                                <offlineLink>
+                                    <url>https://docs.oracle.com/javase/${maven.compiler.release}/docs/api/</url>
+                                    <location>${project.basedir}</location>
+                                </offlineLink>
+                            </offlineLinks>
+                            <failOnError>false</failOnError>
+                            <javadocExecutable>/opt/jdk11/jdk-11/bin/javadoc</javadocExecutable>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

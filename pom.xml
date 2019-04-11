@@ -2,8 +2,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.jwebmp</groupId>
-        <artifactId>jwebmp-builder</artifactId>
+        <groupId>com.jwebmp.thirdparty</groupId>
+        <artifactId>third-party-modules</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
     <artifactId>json</artifactId>
@@ -132,7 +132,7 @@
                             <detectJavaApiLink>false</detectJavaApiLink>
                             <offlineLinks>
                                 <offlineLink>
-                                    <url>https://docs.oracle.com/javase/${maven.compiler.release}/docs/api/</url>
+                                    <url>https://docs.oracle.com/javase/${maven.compiler.version}/docs/api/</url>
                                     <location>${project.basedir}</location>
                                 </offlineLink>
                             </offlineLinks>

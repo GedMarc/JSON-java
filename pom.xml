@@ -139,6 +139,11 @@
                             <failOnError>false</failOnError>
                             <javadocExecutable>/opt/jdk11/jdk-11/bin/javadoc</javadocExecutable>
                         </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadoc</id>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>

@@ -5,10 +5,10 @@ WORKING_DIR=`pwd`
 
 # Get the original sources from Douglas Crockfords GitHub repo
 mkdir -p $SRC_FOLDER
-mkdir -p $MODITECT_FOLDER
+#mkdir -p $MODITECT_FOLDER
 # Copy the module-info to the dist folder to build
-cp src/moditect/module-info.java $MODITECT_FOLDER/module-info.java
-echo "Copied the module info file"
+#cp src/moditect/module-info.java $MODITECT_FOLDER/module-info.java
+#echo "Copied the module info file"
 git clone https://github.com/stleary/JSON-java.git $SRC_FOLDER
 
 echo ""

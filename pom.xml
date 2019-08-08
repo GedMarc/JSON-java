@@ -3,7 +3,7 @@
 
 	<groupId>org.json</groupId>
 	<artifactId>json</artifactId>
-	<version>20180813</version>
+	<version>%%VERSION%%</version>
 	<packaging>bundle</packaging>
 
 	<name>JSON in Java</name>
@@ -98,8 +98,6 @@
 	</dependencies>
 
 	<build>
-        <sourceDirectory>dist/src/main/java</sourceDirectory>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
@@ -168,6 +166,17 @@
 					</execution>
 				</executions>
 			</plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>

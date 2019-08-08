@@ -129,7 +129,7 @@
                         <configuration>
                             <rules>
                                 <requireJavaVersion>
-                                    <version>1.6.0</version>
+                                    <version>1.8.0</version>
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
@@ -139,7 +139,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
+				<version>3.8.1</version>
 				<configuration>
 					<!--<source>%%JAVAVERSION%%</source>
 					<target>%%JAVAVERSION%%</target>-->
@@ -213,7 +213,7 @@
             <plugin>
                 <groupId>org.moditect</groupId>
                 <artifactId>moditect-maven-plugin</artifactId>
-                <version>1.0.0.Beta1</version>
+                <version>1.0.0.Beta2</version>
                 <executions>
                     <execution>
                         <id>add-module-infos</id>
@@ -234,46 +234,4 @@
             </plugin>
 		</plugins>
 	</build>
-    <profiles>
-
-        <profile>
-            <id>jwebmp-distribution</id>
-            <activation>
-            </activation>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>jwebmp-snapshot</id>
-                    <name>JWebMPArtifactory-snapshots</name>
-                    <url>https://jwebmp.com/artifactory/libs-snapshot-local</url>
-                </snapshotRepository>
-                <repository>
-                    <id>jwebmp-release</id>
-                    <name>JWebMPArtifactory-releases</name>
-                    <url>https://jwebmp.com/artifactory/libs-release-local</url>
-                </repository>
-            </distributionManagement>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                                <configuration>
-                                    <passphrase>${gpg.passphrase}</passphrase>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>

@@ -151,10 +151,10 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<!--<source>%%JAVAVERSION%%</source>
-					<target>%%JAVAVERSION%%</target>-->
-                    <source>1.6</source>
-                    <target>1.6</target>
+					<source>%%JAVAVERSION%%</source>
+					<target>%%JAVAVERSION%%</target>
+                    <!--<source>1.6</source>
+                    <target>1.6</target>-->
                     <!--<release>1.11</release>-->
 				</configuration>
                 <dependencies>

@@ -243,6 +243,9 @@
                             <goal>add-module-info</goal>
                         </goals>
                         <configuration>
+                            <!-- Put module-info.class in META-INF/versions/9 to maximize backwards compat -->
+                            <!-- See: https://github.com/moditect/moditect/issues/67 -->
+                            <jvmVersion>9</jvmVersion>
                             <overwriteExistingFiles>true</overwriteExistingFiles>
                             <module>
                                 <moduleInfoFile>

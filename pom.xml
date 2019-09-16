@@ -8,7 +8,7 @@
     </parent>
     <artifactId>json</artifactId>
 
-    <name>JSON in Java</name>
+    <name>org.json</name>
     <description>
         JSON is a light-weight, language independent, data interchange format.
         See http://www.JSON.org/
